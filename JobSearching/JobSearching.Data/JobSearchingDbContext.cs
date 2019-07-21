@@ -4,7 +4,8 @@ using System.Text;
 
 namespace JobSearching.Data
 {
-    class JobSearchingDbContext
+    public class JobSearchingDbContext
     {
+
     }
 }

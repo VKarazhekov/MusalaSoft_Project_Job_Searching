@@ -1,0 +1,52 @@
+﻿@model JobSearching.ViewModels.EmployerDetailViewModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<head>
+    <meta charset="utf-8" />
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+</head>
+
+<style>
+    p.employerInfo {
+        font: 25px Consolas;
+        color: black;
+    }
+
+    hr.horizontalRule {
+        margin: 0 0px 0 0px;
+        margin-bottom: 0.4em;
+        border-color: black;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-6">
+
+        <h2>Personal Information</h2>
+        <p class="employerInfo"><b>Name: </b><span>@Model.FirstName @if (Model.MiddleName != null) { Model.MiddleName.ToString(); } @Model.LastName</span></p>
+        <p class="employerInfo"><b>Works As:</b> Manager of Human Resources</p>
+
+        <hr class="horizontalRule" />
+
+        <h2>Company Information</h2>
+        <p class="employerInfo"><b>Name:  </b> <span>@Model.CompanyName</span> </p>
+        <p class="employerInfo"><b>Location: </b><span>@Model.CompanyLocation</span> </p>
+
+        <hr class="horizontalRule" />
+
+        <h2>Contacts</h2>
+        <p class="employerInfo"><b>Email: </b><span>@Model.ContactEmail</span> </p>
+        <p class="employerInfo"><b>Phone: </b><span>@Model.ContactPhone</span> </p>
+    </div>
+
+        <div class="col-md-4">
+
+            </div>
+    </div>
+            @section Scripts {
+                @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+            }

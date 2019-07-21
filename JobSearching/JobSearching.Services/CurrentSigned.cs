@@ -4,8 +4,8 @@ using System.Text;
 
 namespace JobSearching.Services
 {
-    public class CurrentSignedVolunteer
+    public static class CurrentSigned
     {
-        public int VolunteerId { get; set; }
+        public static int VolunteerId { get; set; } = -1;
     }
 }

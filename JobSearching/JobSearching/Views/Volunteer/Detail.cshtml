@@ -1,0 +1,38 @@
+﻿@model JobSearching.ViewModels.VolunteerDetailViewModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<head>
+    <meta charset="utf-8" />
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+</head>
+
+<style>
+    p.employerInfo {
+        font: 25px Consolas;
+        color: black;
+    }
+
+    hr.horizontalRule {
+        margin: 0 0px 0 0px;
+        margin-bottom: 0.4em;
+        border-color: black;
+    }
+</style>
+
+<div class="row">
+    <h2>Account information about: <b>@Model.Username</b></h2>
+
+    <hr class="horizontalRule" />
+
+    <p class="employerInfo"><b>Name: </b><span>@Model.FirstName @Model.LastName</span></p>
+    <p class="employerInfo"><b>Age: </b><span>@Model.Age</span> </p>
+    <p class="employerInfo"><b>Contact: </b><span>@Model.Contact</span> </p>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

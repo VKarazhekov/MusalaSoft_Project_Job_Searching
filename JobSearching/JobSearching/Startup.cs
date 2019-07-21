@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using JobSearching.Data;
+using JobSearching.Services;
+using JobSearching.Services.Contracts;
 
 namespace JobSearching
 {
@@ -22,6 +21,12 @@ namespace JobSearching
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            /*services.AddDbContext<JobSearchingDbContext>(options =>
+            options.UseSqlServer("Server =.\\SQLEXPRESS; " +
+            "Database=JobSearching;Integrated Security=true"));*/
+            services.AddScoped<IAdvertService, AdvertService>();
+            services.AddScoped<IEmployerService, EmployeerService>();
+            services.AddScoped<IVolunteerService, VolunteerService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

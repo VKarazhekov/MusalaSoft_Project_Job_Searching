@@ -5,7 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Contracts\" />
+    <ProjectReference Include="..\JobSearching.Data.Models\JobSearching.Data.Models.csproj" />
+    <ProjectReference Include="..\JobSearching.Data\JobSearching.Data.csproj" />
+    <ProjectReference Include="..\JobSearching.ViewModels\JobSearching.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

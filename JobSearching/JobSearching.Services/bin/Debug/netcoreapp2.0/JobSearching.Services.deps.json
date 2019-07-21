@@ -1,0 +1,61 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.0",
+    "signature": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.0": {
+      "JobSearching.Services/1.0.0": {
+        "dependencies": {
+          "JobSearching.Data": "1.0.0",
+          "JobSearching.Data.Models": "1.0.0",
+          "JobSearching.ViewModels": "1.0.0"
+        },
+        "runtime": {
+          "JobSearching.Services.dll": {}
+        }
+      },
+      "JobSearching.Data/1.0.0": {
+        "dependencies": {
+          "JobSearching.Data.Models": "1.0.0"
+        },
+        "runtime": {
+          "JobSearching.Data.dll": {}
+        }
+      },
+      "JobSearching.Data.Models/1.0.0": {
+        "runtime": {
+          "JobSearching.Data.Models.dll": {}
+        }
+      },
+      "JobSearching.ViewModels/1.0.0": {
+        "runtime": {
+          "JobSearching.ViewModels.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "JobSearching.Services/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "JobSearching.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "JobSearching.Data.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "JobSearching.ViewModels/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
