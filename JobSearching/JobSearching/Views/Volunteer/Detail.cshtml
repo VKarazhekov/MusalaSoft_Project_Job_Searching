@@ -11,26 +11,16 @@
 </head>
 
 <style>
-    p.employerInfo {
-        font: 25px Consolas;
-        color: black;
-    }
 
-    hr.horizontalRule {
-        margin: 0 0px 0 0px;
-        margin-bottom: 0.4em;
-        border-color: black;
-    }
 </style>
 
 <div class="row">
-    <h2>Account information about: <b>@Model.Username</b></h2>
+    <p class="headlineFont">Account information about: <b>@Model.Username</b></p>
 
     <hr class="horizontalRule" />
 
-    <p class="employerInfo"><b>Name: </b><span>@Model.FirstName @Model.LastName</span></p>
-    <p class="employerInfo"><b>Age: </b><span>@Model.Age</span> </p>
-    <p class="employerInfo"><b>Contact: </b><span>@Model.Contact</span> </p>
+    <pre class="whiteShade"><span class="textTypeFont">Name:    </span><span class="textFont">@Model.FirstName<span>  </span>@Model.LastName<span>  [</span>@Model.Age]</span></pre>
+    <pre class="whiteShade"><span class="textTypeFont">Contact: </span><span class="textFont">@Model.Contact</span> </pre>
 </div>
 
 @section Scripts {

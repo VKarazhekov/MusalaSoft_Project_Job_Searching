@@ -1,42 +1,57 @@
 ﻿body {
+    color: black;
     padding-top: 50px;
     padding-bottom: 20px;
-    background-color: red;
+    background-color: #efefef;
+    font: 100 20px 'Roboto';
+}
+
+.headlineFont {
+    font: 200 40px 'Roboto';
+    margin-top:10px;
+}
+
+.textTypeFont {
+    font: 900 20px 'Consolas';
+}
+
+.textFont{
+    font: 100 20px 'Roboto';
+}
+
+.initial {
+    all: initial;
+}
+
+.horizontalRule {
+    margin: 5px 0 20px 0;
+    border-color: black;
+    padding: 0.4px;
+    border: 1px solid;
+    width:100%;
+    background-color: black;
+}
+
+.whiteShade {
+    background-color: #f7f7f7;
 }
 
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
-
-
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
 
-p {
-    word-spacing: 3px;
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
 }
 
-.elementText {
-    font: 100 20px 'Open Sans','Sans-Serif';
-    word-wrap: break-word;
-}
-
-.box {
-    border-radius: 100px;
-    background: #3dff46;
-    padding: 30px 0;
-    text-align: center;
-    height: 200px;
-    float: left;
-    width: 30%;
-    margin: 1%;
-}
-
-.horizontalRule {
-    margin: 0 11px 0.4em 11px;
-    margin-bottom: 0.4em;
-    border-color: black;
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
 }
 
 /* QR code generator */

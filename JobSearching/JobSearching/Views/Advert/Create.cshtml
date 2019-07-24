@@ -10,7 +10,7 @@
     </environment>
 </head>
 
-<h2>Register</h2>
+<p class="headlineFont">Add An Advert</p>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -28,7 +28,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" required />
+                <textarea asp-for="Description" class="form-control" required style="height:100px;resize:vertical;width:100%;overflow-y:auto"></textarea>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             

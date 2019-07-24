@@ -49,6 +49,26 @@ namespace JobSearching.Controllers
             return View(model);
         }
 
+        public IActionResult Profile()
+        {
+            //VolunteerProfileViewModel model = service.GetSignedVolunteer();
+            VolunteerProfileViewModel model = new VolunteerProfileViewModel()
+            {
+                Username = "veselin465",
+                FirstName = "Veselin",
+                LastName = "Penev",
+                Age = 25,
+                Contact = "veselinpenev2001@gmail.com"
+            };
+
+            if (model == null)
+            {
+                return RedirectToAction("LogIn", "Volunteer");
+            }
+
+            return View(model);
+        }
+
         [HttpPost]
         public IActionResult Create(string userName, string password, string firstName, string lastName, int age, string contact)
         {
@@ -63,27 +83,43 @@ namespace JobSearching.Controllers
             return this.RedirectToAction("LogIn", "Volunteer");
         }
 
-
         [HttpPost]
         public IActionResult LogIn(string userName, string password)
         {
             int id = -1;
-            /*id = this.service.LogInVolunteer(userName, password, firstName, lastName, age, contact);*/
+            /*id = this.service.LogInVolunteer(userName, password);*/
 
             if (id == -1)
             {
-                return this.RedirectToAction("FailedLogInAttempt", "Volunteer");
+                
+                
+                return this.View(new VolunteerLogInViewModel() {
+                    Username = userName,
+                    Password = "",
+                    FailedLogInAttempt = true
+                });
             }
             
-            
-            return this.RedirectToAction("LogIn", "Volunteer");
+            return this.RedirectToAction("Profile", "Volunteer");
         }
+
         [HttpPost]
-        public IActionResult FailedLogInAttempt(string userName, string password)
+        public IActionResult Profile(string userName, string oldPassword, string newPassword, string firstName, string lastName, int age, string contact)
         {
-            return LogIn(userName, password);
+            bool isSuccessful = false;
+            //status = service.ChangeVolunteer();
+            if (isSuccessful)
+            {
+                return RedirectToAction("", "Volunteer");
+            }
+            else
+            {
+                return RedirectToAction("Profile", "Volunteer", new VolunteerProfileViewModel()
+                {
+                    Username = userName, FirstName = firstName, LastName = lastName,
+                    Age = age, Contact = contact
+                });
+            }
         }
-
-
     }
 }

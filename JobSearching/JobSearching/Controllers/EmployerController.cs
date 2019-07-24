@@ -52,7 +52,7 @@ namespace JobSearching.Controllers
             {
                 return this.View("Error", new InvalidActionViewModel() { ErrorMessage = e.Message });
             }
-            return this.RedirectToAction("LogIn", "Volunteer");
+            return this.RedirectToAction("Create", "Advert");
         }
 
     }

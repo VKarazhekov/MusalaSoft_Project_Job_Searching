@@ -1,0 +1,79 @@
+﻿@model JobSearching.ViewModels.IndexSingleAdViewModel
+@{
+    ViewData["Title"] = "Display All Ads";
+}
+
+<head>
+    <meta charset="utf-8" />
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <style>
+        .box {
+            border-radius: 40px;
+            background: #70ffbd;
+            padding: 30px 10px;
+            text-align: center;
+            height: 250px;
+            float: left;
+            min-width: 270px;
+            width: 28%;
+            margin: 2%;
+        }
+        .adDisplayTypeFont{
+            font: 18px Consolas;
+        }
+        .adDisplayTextFont {
+            font: 16px Arial;
+        }
+    </style>
+</head>
+<body onload="ManageBoxWidth()">
+    <p class="headlineFont">A complete list of all Advertisements</p>
+    <hr class="horizontalRule" />
+    <div class="row">
+
+
+
+        @if (Model == null)
+        {
+            <p class="textFont">There are no Ads to be displayed</p>
+
+        }
+        else
+        {
+            <div class="container">
+                @foreach (var ad in Model.Ads)
+                {
+                    <figure class="box">
+                        <p class="" style="word-wrap:break-word;">
+                            <b class="adDisplayTypeFont">POSITION:</b> 
+                            <a asp-route-id="@ad.Id" asp-area="" asp-action="Detail" asp-controller="Advert" class="adDisplayTextFont" style="color:green; ">@ad.Position</a></p>
+                        <p class="" style="word-wrap:break-word;">
+                            <b class="adDisplayTypeFont">COMPANY:</b>
+                            <span class="adDisplayTextFont">@ad.CompanyName</span>
+                        </p>
+                        <p class="textFont" style="word-wrap:break-word;"><pre style="width:250px;position:relative;left:50%;transform:translateX(-50%);border:2px solid;border-radius:15px;text-align:left;height:100px;overflow-x:hidden">@ad.Description</pre></p>
+                    </figure>
+
+                }
+            </div>
+        }
+    </div>
+
+    <div class="row">
+    </div>
+</body>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<script>
+    function ManageBoxWidth() {
+        var elements = document.getElementsByClassName("box");
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].clientWidth = Math.floor(document.body.clientWidth/3);
+        }
+    }
+</script>
+

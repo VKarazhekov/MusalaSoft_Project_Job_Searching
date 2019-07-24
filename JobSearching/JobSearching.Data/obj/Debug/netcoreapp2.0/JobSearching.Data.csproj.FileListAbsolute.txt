@@ -9,3 +9,14 @@ E:\IT Кариера - softuni\MusalaSoft\MusalaSoft_Project_Job_Searching\JobSe
 E:\IT Кариера - softuni\MusalaSoft\MusalaSoft_Project_Job_Searching\JobSearching\JobSearching.Data\obj\Debug\netcoreapp2.0\JobSearching.Data.AssemblyInfo.cs
 E:\IT Кариера - softuni\MusalaSoft\MusalaSoft_Project_Job_Searching\JobSearching\JobSearching.Data\obj\Debug\netcoreapp2.0\JobSearching.Data.dll
 E:\IT Кариера - softuni\MusalaSoft\MusalaSoft_Project_Job_Searching\JobSearching\JobSearching.Data\obj\Debug\netcoreapp2.0\JobSearching.Data.pdb
+E:\IT Кариера - softuni\MusalaSoft\Project JobSearching\JobSearching\JobSearching.Data\bin\Debug\netcoreapp2.0\JobSearching.Data.deps.json
+E:\IT Кариера - softuni\MusalaSoft\Project JobSearching\JobSearching\JobSearching.Data\bin\Debug\netcoreapp2.0\JobSearching.Data.dll
+E:\IT Кариера - softuni\MusalaSoft\Project JobSearching\JobSearching\JobSearching.Data\bin\Debug\netcoreapp2.0\JobSearching.Data.pdb
+E:\IT Кариера - softuni\MusalaSoft\Project JobSearching\JobSearching\JobSearching.Data\bin\Debug\netcoreapp2.0\JobSearching.Data.Models.dll
+E:\IT Кариера - softuni\MusalaSoft\Project JobSearching\JobSearching\JobSearching.Data\bin\Debug\netcoreapp2.0\JobSearching.Data.Models.pdb
+E:\IT Кариера - softuni\MusalaSoft\Project JobSearching\JobSearching\JobSearching.Data\obj\Debug\netcoreapp2.0\JobSearching.Data.csprojResolveAssemblyReference.cache
+E:\IT Кариера - softuni\MusalaSoft\Project JobSearching\JobSearching\JobSearching.Data\obj\Debug\netcoreapp2.0\JobSearching.Data.csproj.CoreCompileInputs.cache
+E:\IT Кариера - softuni\MusalaSoft\Project JobSearching\JobSearching\JobSearching.Data\obj\Debug\netcoreapp2.0\JobSearching.Data.AssemblyInfoInputs.cache
+E:\IT Кариера - softuni\MusalaSoft\Project JobSearching\JobSearching\JobSearching.Data\obj\Debug\netcoreapp2.0\JobSearching.Data.AssemblyInfo.cs
+E:\IT Кариера - softuni\MusalaSoft\Project JobSearching\JobSearching\JobSearching.Data\obj\Debug\netcoreapp2.0\JobSearching.Data.dll
+E:\IT Кариера - softuni\MusalaSoft\Project JobSearching\JobSearching\JobSearching.Data\obj\Debug\netcoreapp2.0\JobSearching.Data.pdb

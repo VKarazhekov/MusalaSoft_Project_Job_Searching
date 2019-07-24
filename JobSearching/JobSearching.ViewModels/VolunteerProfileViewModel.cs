@@ -4,11 +4,12 @@ using System.Text;
 
 namespace JobSearching.ViewModels
 {
-    public class VolunteerCreateViewModel
+    public class VolunteerProfileViewModel
     {
 
         public string Username { get; set; }
-        public string Password { get; set; }
+        public string OldPassword { get; set; }
+        public string NewPassword { get; set; }
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -16,5 +17,7 @@ namespace JobSearching.ViewModels
         public int Age { get; set; }
         public string Contact { get; set; }
 
+        public bool FailedLogInAttempt { get; set; } = false;
+        public bool IsChangeable { get; set; }
     }
 }

@@ -1,35 +1,41 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<head>
+    <meta charset="utf-8" />
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <style>
+        p.homeDescr {
+            font: 18px Helvitica Neue;
+        }
 
-<style>
+        hr.homeHr {
+            border: 1px solid;
+        }
+    </style>
+</head>
 
-    p.homeDescr {
-        font: 18px Helvitica Neue;
-    }
-
-    hr.homeHr{
-
-        border: solid 1px;
-
-    }
-
-</style>
 
 <div class="row">
+
+    <p style="position: relative; left:-10% ;font: 50px Roboto;text-align:center;">
+        Проект „Търсене на работа“</p>
+    <hr class="horizontalRule" style="margin-bottom:5px;"/>
     <div class="col-md-3">
-        <h2>За нас:</h2><hr class="homeHr"/><h3>Този уебсайт e създаден с намерението да помага на хора да предлагат, търсят и намират работа в най-различни категории</h3>
-    </div>
+        <p class="headlineFont" style="margin-top:20px;">За нас:</p><hr class="homeHr" /><h3>Този уебсайт e създаден с намерението да помага на хора да предлагат, търсят и намират работа в най-различни категории</h3>
+</div>
     <div class="col-md-6">
-        <h2>Правила за ползване:</h2><hr class="homeHr"/><h3>В зависимост от това дали:</h3>
+        <p class="headlineFont" style="margin-top:20px;">Правила за ползване:</p><hr class="homeHr"/><h3>В зависимост от това дали:</h3>
         <ul>
             <li style="font:20px Helvitica Neue;"><b>Търсите работа: </b>Вие първо трябва да си направите регистрация в сайта. Регистрацията трябва да съдържа валидни лични данни за Вас – данните Ви са поверителни и никой, освен самите Вие, няма достъп до тях; </li>
             <li style="font:20px Helvitica Neue;"><b>Предлагате работа: </b>Ще трябва да си направите регистрация, като трябва да включите: валидни лични данни, име и адрес на фирмата, за която е необходима работна ръка, и контакт за връзка. Обявата за работа трябва да съдържа име на търсената позиция, и описание. </li>
 
         </ul>
     </div>
-    <div class="col-md-3">
-        <h2>Правила за регистриране:</h2><hr class="homeHr" />
+    <div class="col-md-3" style="padding:0;">
+        <p class="headlineFont">Правила за регистриране:</p><hr class="homeHr" />
         <p class="homeDescr"><b>Потр. име и парола</b>: от 6 до 20 символа</p>
         <p class="homeDescr"><b>Лични имена</b>: само букви, до 15</p>
         <p class="homeDescr"><b>Възраст</b>: поне 16 години</p>

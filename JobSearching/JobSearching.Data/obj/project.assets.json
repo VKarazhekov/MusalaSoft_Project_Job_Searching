@@ -689,11 +689,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "E:\\IT Кариера - softuni\\MusalaSoft\\MusalaSoft_Project_Job_Searching\\JobSearching\\JobSearching.Data\\JobSearching.Data.csproj",
+      "projectUniqueName": "E:\\IT Кариера - softuni\\MusalaSoft\\Project JobSearching\\JobSearching\\JobSearching.Data\\JobSearching.Data.csproj",
       "projectName": "JobSearching.Data",
-      "projectPath": "E:\\IT Кариера - softuni\\MusalaSoft\\MusalaSoft_Project_Job_Searching\\JobSearching\\JobSearching.Data\\JobSearching.Data.csproj",
+      "projectPath": "E:\\IT Кариера - softuni\\MusalaSoft\\Project JobSearching\\JobSearching\\JobSearching.Data\\JobSearching.Data.csproj",
       "packagesPath": "C:\\Users\\Vesko\\.nuget\\packages\\",
-      "outputPath": "E:\\IT Кариера - softuni\\MusalaSoft\\MusalaSoft_Project_Job_Searching\\JobSearching\\JobSearching.Data\\obj\\",
+      "outputPath": "E:\\IT Кариера - softuni\\MusalaSoft\\Project JobSearching\\JobSearching\\JobSearching.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -712,8 +712,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "E:\\IT Кариера - softuni\\MusalaSoft\\MusalaSoft_Project_Job_Searching\\JobSearching\\JobSearching.Data.Models\\JobSearching.Data.Models.csproj": {
-              "projectPath": "E:\\IT Кариера - softuni\\MusalaSoft\\MusalaSoft_Project_Job_Searching\\JobSearching\\JobSearching.Data.Models\\JobSearching.Data.Models.csproj"
+            "E:\\IT Кариера - softuni\\MusalaSoft\\Project JobSearching\\JobSearching\\JobSearching.Data.Models\\JobSearching.Data.Models.csproj": {
+              "projectPath": "E:\\IT Кариера - softuni\\MusalaSoft\\Project JobSearching\\JobSearching\\JobSearching.Data.Models\\JobSearching.Data.Models.csproj"
             }
           }
         }

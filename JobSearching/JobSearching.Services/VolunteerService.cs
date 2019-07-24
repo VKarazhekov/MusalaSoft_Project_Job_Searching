@@ -26,13 +26,23 @@ namespace JobSearching.Services
         public void LogInVolunteer(string userName, string password)
         {
             // При успешен logIn актуализирай CurrentSigned.VolunteerId
-            throw new NotImplementedException("Impl. LogIn");
+            throw new NotImplementedException("Impl. LogIn()");
+        }
+
+        public void ChangeVolunteer(string userName, string oldPassword, string newPassword, string firstName, string lastName, int age, string contact)
+        {
+            throw new NotImplementedException("Impl. ChangeVolunteer()");
         }
 
         public VolunteerDetailViewModel GetVolunteer(int id)
         {
             // виж VolnteerController -> Detail();
             throw new NotImplementedException("Impl. GetVolunteer(id)");
+        }
+
+        public VolunteerProfileViewModel GetSignedVolunteer()
+        {
+            throw new NotImplementedException("Impl. GetSignedVolunteer()");
         }
 
         

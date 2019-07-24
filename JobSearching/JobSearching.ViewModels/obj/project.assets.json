@@ -673,11 +673,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "E:\\IT Кариера - softuni\\MusalaSoft\\MusalaSoft_Project_Job_Searching\\JobSearching\\JobSearching.ViewModels\\JobSearching.ViewModels.csproj",
+      "projectUniqueName": "E:\\IT Кариера - softuni\\MusalaSoft\\Project JobSearching\\JobSearching\\JobSearching.ViewModels\\JobSearching.ViewModels.csproj",
       "projectName": "JobSearching.ViewModels",
-      "projectPath": "E:\\IT Кариера - softuni\\MusalaSoft\\MusalaSoft_Project_Job_Searching\\JobSearching\\JobSearching.ViewModels\\JobSearching.ViewModels.csproj",
+      "projectPath": "E:\\IT Кариера - softuni\\MusalaSoft\\Project JobSearching\\JobSearching\\JobSearching.ViewModels\\JobSearching.ViewModels.csproj",
       "packagesPath": "C:\\Users\\Vesko\\.nuget\\packages\\",
-      "outputPath": "E:\\IT Кариера - softuni\\MusalaSoft\\MusalaSoft_Project_Job_Searching\\JobSearching\\JobSearching.ViewModels\\obj\\",
+      "outputPath": "E:\\IT Кариера - softuni\\MusalaSoft\\Project JobSearching\\JobSearching\\JobSearching.ViewModels\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

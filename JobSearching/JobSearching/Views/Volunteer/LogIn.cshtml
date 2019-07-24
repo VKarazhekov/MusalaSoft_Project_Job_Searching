@@ -1,16 +1,13 @@
 ﻿@model JobSearching.ViewModels.VolunteerLogInViewModel
-
 @{
     ViewData["Title"] = "LogIn";
 }
-
 <head>
     <meta charset="utf-8" />
     <environment include="Development">
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
 </head>
-
 <h2>LogIn</h2>
 <hr />
 <div class="row">
@@ -31,14 +28,16 @@
                 <input type="submit" value="LogIn" class="btn btn-default" />
             </div>
         </form>
-
+        @if (Model!=null && Model.FailedLogInAttempt)
+        {
+            <p style="color:red;margin-left:10px;font-size:20px"><i>Failed LogIn attempt</i></p>
+        }
         <br />
         <br />
         <p style="font-size:16px;">
             Don't have an account, yet?
             <a asp-route-id="" asp-area="" asp-action="Create" asp-controller="Volunteer">Register here</a>
         </p>
-
     </div>
 </div>
 @section Scripts {

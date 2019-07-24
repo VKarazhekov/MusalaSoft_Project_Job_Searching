@@ -11,42 +11,33 @@
 </head>
 
 <style>
-    p.employerInfo {
-        font: 25px Consolas;
-        color: black;
-    }
-
-    hr.horizontalRule {
-        margin: 0 0px 0 0px;
-        margin-bottom: 0.4em;
-        border-color: black;
-    }
+    
 </style>
 
 <div class="row">
     <div class="col-md-6">
 
-        <h2>Personal Information</h2>
-        <p class="employerInfo"><b>Name: </b><span>@Model.FirstName @if (Model.MiddleName != null) { Model.MiddleName.ToString(); } @Model.LastName</span></p>
-        <p class="employerInfo"><b>Works As:</b> Manager of Human Resources</p>
+        <p class="headlineFont">Personal Information</p>
+        <pre class="whiteShade"><span class="textTypeFont">Name:     </span><span class="textFont">@Model.FirstName @if (Model.MiddleName != null) { Model.MiddleName.ToString(); } @Model.LastName</span></pre>
+        <pre class="whiteShade"><span class="textTypeFont">Works As: </span><span class="textFont">Manager of Human Resources</span></pre>
 
         <hr class="horizontalRule" />
 
-        <h2>Company Information</h2>
-        <p class="employerInfo"><b>Name:  </b> <span>@Model.CompanyName</span> </p>
-        <p class="employerInfo"><b>Location: </b><span>@Model.CompanyLocation</span> </p>
+        <p class="headlineFont">Company Information</p>
+        <pre class="whiteShade"><span class="textTypeFont">Name:     </span><span class="textFont">@Model.CompanyName</span> </pre>
+        <pre class="whiteShade"><span class="textTypeFont">Location: </span><span class="textFont">@Model.CompanyLocation</span> </pre>
 
         <hr class="horizontalRule" />
 
-        <h2>Contacts</h2>
-        <p class="employerInfo"><b>Email: </b><span>@Model.ContactEmail</span> </p>
-        <p class="employerInfo"><b>Phone: </b><span>@Model.ContactPhone</span> </p>
+        <p class="headlineFont">Contacts</p>
+        <pre class="whiteShade"><span class="textTypeFont">Email: </span><span class="textFont">@Model.ContactEmail</span> </pre>
+        <pre class="whiteShade"><span class="textTypeFont">Phone: </span><span class="textFont">@Model.ContactPhone</span> </pre>
     </div>
 
-        <div class="col-md-4">
+    <div class="col-md-6">
 
-            </div>
     </div>
-            @section Scripts {
-                @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-            }
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

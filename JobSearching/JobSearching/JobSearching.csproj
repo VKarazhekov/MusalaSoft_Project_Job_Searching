@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -14,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\JobSearching.Data.Models\JobSearching.Data.Models.csproj" />
     <ProjectReference Include="..\JobSearching.Data\JobSearching.Data.csproj" />
     <ProjectReference Include="..\JobSearching.Services\JobSearching.Services.csproj" />
     <ProjectReference Include="..\JobSearching.ViewModels\JobSearching.ViewModels.csproj" />
