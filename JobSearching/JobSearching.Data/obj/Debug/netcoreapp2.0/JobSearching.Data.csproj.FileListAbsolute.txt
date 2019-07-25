@@ -20,3 +20,15 @@ E:\IT Кариера - softuni\MusalaSoft\Project JobSearching\JobSearching\JobS
 E:\IT Кариера - softuni\MusalaSoft\Project JobSearching\JobSearching\JobSearching.Data\obj\Debug\netcoreapp2.0\JobSearching.Data.AssemblyInfo.cs
 E:\IT Кариера - softuni\MusalaSoft\Project JobSearching\JobSearching\JobSearching.Data\obj\Debug\netcoreapp2.0\JobSearching.Data.dll
 E:\IT Кариера - softuni\MusalaSoft\Project JobSearching\JobSearching\JobSearching.Data\obj\Debug\netcoreapp2.0\JobSearching.Data.pdb
+E:\MusalaSoft_Project_Job_Searching\JobSearching\JobSearching.Data\bin\Debug\netcoreapp2.0\JobSearching.Data.deps.json
+E:\MusalaSoft_Project_Job_Searching\JobSearching\JobSearching.Data\bin\Debug\netcoreapp2.0\JobSearching.Data.dll
+E:\MusalaSoft_Project_Job_Searching\JobSearching\JobSearching.Data\bin\Debug\netcoreapp2.0\JobSearching.Data.pdb
+E:\MusalaSoft_Project_Job_Searching\JobSearching\JobSearching.Data\bin\Debug\netcoreapp2.0\JobSearching.Data.Models.dll
+E:\MusalaSoft_Project_Job_Searching\JobSearching\JobSearching.Data\bin\Debug\netcoreapp2.0\JobSearching.Data.Models.pdb
+E:\MusalaSoft_Project_Job_Searching\JobSearching\JobSearching.Data\obj\Debug\netcoreapp2.0\JobSearching.Data.csprojAssemblyReference.cache
+E:\MusalaSoft_Project_Job_Searching\JobSearching\JobSearching.Data\obj\Debug\netcoreapp2.0\JobSearching.Data.csproj.CoreCompileInputs.cache
+E:\MusalaSoft_Project_Job_Searching\JobSearching\JobSearching.Data\obj\Debug\netcoreapp2.0\JobSearching.Data.AssemblyInfoInputs.cache
+E:\MusalaSoft_Project_Job_Searching\JobSearching\JobSearching.Data\obj\Debug\netcoreapp2.0\JobSearching.Data.AssemblyInfo.cs
+E:\MusalaSoft_Project_Job_Searching\JobSearching\JobSearching.Data\obj\Debug\netcoreapp2.0\JobSearching.Data.csproj.CopyComplete
+E:\MusalaSoft_Project_Job_Searching\JobSearching\JobSearching.Data\obj\Debug\netcoreapp2.0\JobSearching.Data.dll
+E:\MusalaSoft_Project_Job_Searching\JobSearching\JobSearching.Data\obj\Debug\netcoreapp2.0\JobSearching.Data.pdb
