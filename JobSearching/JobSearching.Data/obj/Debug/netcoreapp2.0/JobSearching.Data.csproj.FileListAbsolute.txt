@@ -32,7 +32,7 @@ E:\MusalaSoft_Project_Job_Searching\JobSearching\JobSearching.Data\obj\Debug\net
 E:\MusalaSoft_Project_Job_Searching\JobSearching\JobSearching.Data\obj\Debug\netcoreapp2.0\JobSearching.Data.csproj.CopyComplete
 E:\MusalaSoft_Project_Job_Searching\JobSearching\JobSearching.Data\obj\Debug\netcoreapp2.0\JobSearching.Data.dll
 E:\MusalaSoft_Project_Job_Searching\JobSearching\JobSearching.Data\obj\Debug\netcoreapp2.0\JobSearching.Data.pdb
-E:\MusalaSoft_Project_Job_Searching\JobSearching\JobSearching.Data\bin\Debug\netcoreapp2.0\JobSearching.Data.runtimeconfig.json
-E:\MusalaSoft_Project_Job_Searching\JobSearching\JobSearching.Data\bin\Debug\netcoreapp2.0\JobSearching.Data.runtimeconfig.dev.json
 E:\IT Кариера - softuni\MusalaSoft\Project JobSearching\JobSearching\JobSearching.Data\bin\Debug\netcoreapp2.0\JobSearching.Data.runtimeconfig.json
 E:\IT Кариера - softuni\MusalaSoft\Project JobSearching\JobSearching\JobSearching.Data\bin\Debug\netcoreapp2.0\JobSearching.Data.runtimeconfig.dev.json
+E:\MusalaSoft_Project_Job_Searching\JobSearching\JobSearching.Data\bin\Debug\netcoreapp2.0\JobSearching.Data.runtimeconfig.json
+E:\MusalaSoft_Project_Job_Searching\JobSearching\JobSearching.Data\bin\Debug\netcoreapp2.0\JobSearching.Data.runtimeconfig.dev.json
