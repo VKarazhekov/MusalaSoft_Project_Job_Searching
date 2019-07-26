@@ -6,13 +6,13 @@ namespace JobSearching.Data.Models
 {
     public class Volunteer
     {
-        public int id { get; set; }
-        public string username { get; set; }
-        public string password { get; set; }
-        public string firstName { get; set; }
-        public int age { get; set; }
-        public string lastName { get; set; }
-        public string contactInformation { get; set; }
+        public int Id { get; set; }
+        public string Ssername { get; set; }
+        public string Password { get; set; }
+        public string FirstName { get; set; }
+        public int Age { get; set; }
+        public string LastName { get; set; }
+        public string ContactInformation { get; set; }
         public ICollection<JobVolunteer> JobAds { get; set; }
     }
 }

@@ -16,13 +16,26 @@ namespace JobSearching.Data
         {
 
         }
+
+        public DbSet<Employer> Employers { get; set; }
+        public DbSet<JobAd> JobAds { get; set; }
+        public DbSet<Volunteer> Volunteers { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<JobAd>()
-                .HasKey(x => x.id);
+                .HasKey(x => x.Id);
+
+            
+
+        modelBuilder.Entity<JobAd>()
+            .HasOne(p => p.Employer)
+            .WithMany(b => b.JobAds)
+            .HasForeignKey(p => p.EmployerId)
+            .HasConstraintName("FK_JobAd_Employer");
 
             modelBuilder.Entity<Volunteer>()
-                .HasKey(x => x.id);
+                .HasKey(x => x.Id);
 
             modelBuilder.Entity<JobVolunteer>()
                 .HasKey(x => new { x.JobAdId, x.VolunteerId });
@@ -43,8 +56,5 @@ namespace JobSearching.Data
             }
             base.OnConfiguring(optionsBuilder);
         }
-        public DbSet<Employer> Employers { get; set; }
-        public DbSet<JobAd> JobAds { get; set; }
-        public DbSet<Volunteer> Volunteers { get; set; }
     }
 }

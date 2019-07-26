@@ -11,53 +11,59 @@ namespace JobSearching.Data.Migrations
                 name: "Employers",
                 columns: table => new
                 {
-                    id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    firstName = table.Column<string>(nullable: false),
-                    middleName = table.Column<string>(nullable: false),
-                    lastName = table.Column<string>(nullable: false),
-                    age = table.Column<int>(nullable: false),
-                    currentAddress = table.Column<string>(nullable: false),
-                    companyName = table.Column<string>(nullable: false),
-                    contactEmail = table.Column<string>(nullable: false),
-                    contactPhone = table.Column<string>(nullable: false)
+                    FirstName = table.Column<string>(nullable: false),
+                    MiddleName = table.Column<string>(nullable: false),
+                    LastName = table.Column<string>(nullable: false),
+                    Age = table.Column<int>(nullable: false),
+                    CurrentAddress = table.Column<string>(nullable: false),
+                    CompanyName = table.Column<string>(nullable: false),
+                    ContactEmail = table.Column<string>(nullable: false),
+                    ContactPhone = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Employers", x => x.id);
+                    table.PrimaryKey("PK_Employers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
                 name: "JobAds",
                 columns: table => new
                 {
-                    id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    positionName = table.Column<string>(nullable: false),
-                    employerId = table.Column<string>(nullable: false),
-                    description = table.Column<string>(nullable: false)
+                    PositionName = table.Column<string>(nullable: false),
+                    EmployerId = table.Column<int>(nullable: false),
+                    Description = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_JobAds", x => x.id);
+                    table.PrimaryKey("PK_JobAds", x => x.Id);
+                    table.ForeignKey(
+                       name: "FK_JobAd_Employer",
+                       column: x => x.EmployerId,
+                       principalTable: "Employers",
+                       principalColumn: "Id",
+                       onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Volunteers",
                 columns: table => new
                 {
-                    id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    username = table.Column<string>(nullable: true),
-                    password = table.Column<string>(nullable: true),
-                    firstName = table.Column<string>(nullable: true),
-                    age = table.Column<int>(nullable: false),
-                    lastName = table.Column<string>(nullable: true),
-                    contactInformation = table.Column<string>(nullable: true)
+                    Username = table.Column<string>(nullable: true),
+                    Password = table.Column<string>(nullable: true),
+                    FirstName = table.Column<string>(nullable: true),
+                    Age = table.Column<int>(nullable: false),
+                    LastName = table.Column<string>(nullable: true),
+                    ContactInformation = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Volunteers", x => x.id);
+                    table.PrimaryKey("PK_Volunteers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -74,13 +80,13 @@ namespace JobSearching.Data.Migrations
                         name: "FK_JobVolunteer_JobAds_JobAdId",
                         column: x => x.JobAdId,
                         principalTable: "JobAds",
-                        principalColumn: "id",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_JobVolunteer_Volunteers_VolunteerId",
                         column: x => x.VolunteerId,
                         principalTable: "Volunteers",
-                        principalColumn: "id",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 

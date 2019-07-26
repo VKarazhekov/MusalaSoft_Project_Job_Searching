@@ -6,14 +6,15 @@ namespace JobSearching.Data.Models
 {
     public class Employer
     {
-        public int id { get; set; }
-        public string firstName { get; set; }
-        public string middleName { get; set; }
-        public string lastName { get; set; }
-        public int age { get; set; }
-        public string currentAddress { get; set; }
-        public string companyName { get; set; }
-        public string contactEmail { get; set; }
-        public string contactPhone { get; set; }
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string MiddleName { get; set; }
+        public string LastName { get; set; }
+        public int Age { get; set; }
+        public string CurrentAddress { get; set; }
+        public string CompanyName { get; set; }
+        public string ContactEmail { get; set; }
+        public string ContactPhone { get; set; }
+        public ICollection<JobAd> JobAds { get; set; }
     }
 }

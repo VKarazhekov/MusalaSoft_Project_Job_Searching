@@ -6,10 +6,11 @@ namespace JobSearching.Data.Models
 {
     public class JobAd
     {
-        public int id { get; set; }
-        public string positionName {get; set;}
-        public string employerId { get; set; }
-        public string description { get; set; }
+        public int Id { get; set; }
+        public string PositionName {get; set;}
+        public int EmployerId { get; set; }
+        public string Description { get; set; }
         public ICollection<JobVolunteer> Volunteers { get; set; }
+        public Employer Employer { get; set; }
     }
 }
