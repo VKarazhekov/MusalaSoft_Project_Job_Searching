@@ -6,17 +6,18 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using JobSearching.Models;
 using JobSearching.ViewModels;
+using JobSearching.Services.Contracts;
 
 namespace JobSearching.Controllers
 {
     public class EmployerController : Controller
     {
 
-        /*private IEmployerService service;
-        public VolunteerController(IEmployerService service)
+        private IEmployerService service;
+        public EmployerController(IEmployerService service)
         {
             this.service = service;
-        }*/
+        }
 
         public IActionResult Create()
         {
@@ -46,11 +47,11 @@ namespace JobSearching.Controllers
         {
             try
             {
-                /*this.service.CreateEmployer(firstName, middleName, lastName, age, companyName, companyLocation, contactEmail, contactPhone);*/
+                this.service.CreateEmployer(firstName, middleName, lastName, age, companyName, companyLocation, contactEmail, contactPhone);
             }
-            catch (Exception e)
+            catch (ArgumentException e)
             {
-                return this.View("Error", new InvalidActionViewModel() { ErrorMessage = e.Message });
+                return this.View("InvalidAction", new InvalidActionViewModel() { ErrorMessage = e.Message });
             }
             return this.RedirectToAction("Create", "Advert");
         }

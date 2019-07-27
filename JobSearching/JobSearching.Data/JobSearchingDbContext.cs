@@ -8,11 +8,9 @@ namespace JobSearching.Data
 {
     public class JobSearchingDbContext : DbContext
     {
-        public JobSearchingDbContext()
-        {
-
-        }
-        public JobSearchingDbContext(DbContextOptions options) : base(options)
+        
+        public JobSearchingDbContext(DbContextOptions<JobSearchingDbContext> options) 
+            : base(options)
         {
 
         }
@@ -28,11 +26,11 @@ namespace JobSearching.Data
 
             
 
-        modelBuilder.Entity<JobAd>()
-            .HasOne(p => p.Employer)
-            .WithMany(b => b.JobAds)
-            .HasForeignKey(p => p.EmployerId)
-            .HasConstraintName("FK_JobAd_Employer");
+            modelBuilder.Entity<JobAd>()
+                .HasOne(p => p.Employer)
+                .WithMany(b => b.JobAds)
+                .HasForeignKey(p => p.EmployerId)
+                .HasConstraintName("FK_JobAd_Employer");
 
             modelBuilder.Entity<Volunteer>()
                 .HasKey(x => x.Id);
@@ -52,7 +50,7 @@ namespace JobSearching.Data
         {
             if(!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(Configuration.ConnectionString);
+                optionsBuilder.UseSqlServer(ConfigurationData.ConnectionString);
             }
             base.OnConfiguring(optionsBuilder);
         }

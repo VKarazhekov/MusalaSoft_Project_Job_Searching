@@ -15,11 +15,11 @@ namespace JobSearching.Controllers
     {
 
 
-        /*private IVolunteerService service;
+        private IVolunteerService service;
         public VolunteerController(IVolunteerService service)
         {
             this.service = service;
-        }*/
+        }
 
         public IActionResult Create()
         {
@@ -74,11 +74,11 @@ namespace JobSearching.Controllers
         {
             try
             {
-                /*this.service.CreateVolunteer(userName, password, firstName, lastName, age, contact);*/
+                this.service.CreateVolunteer(userName, password, firstName, lastName, age, contact);
             }
-            catch (Exception e)
+            catch (ArgumentException e)
             {
-                return this.View("Error", new InvalidActionViewModel() { ErrorMessage = e.Message });
+                return this.View("InvalidAction", new InvalidActionViewModel() { ErrorMessage = e.Message });
             }
             return this.RedirectToAction("LogIn", "Volunteer");
         }
