@@ -53,14 +53,14 @@ namespace JobSearching.Services
         }
         
 
-        public void LogInVolunteer(string userName, string password)
+        public int LogInVolunteer(string userName, string password)
         {
             // При успешен logIn актуализирай CurrentSigned.VolunteerId
             throw new NotImplementedException("Impl. LogIn()");
         }
 
 
-        public void ChangeVolunteer(string userName, string oldPassword, string newPassword, string firstName, string lastName, int age, string contact)
+        public bool ChangeVolunteer(string userName, string oldPassword, string newPassword, string firstName, string lastName, int age, string contact)
         {
             throw new NotImplementedException("Impl. ChangeVolunteer()");
         }

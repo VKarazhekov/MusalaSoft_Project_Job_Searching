@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using JobSearching.Data;
 using JobSearching.Services.Contracts;
 using System.Collections.Generic;
@@ -16,8 +17,7 @@ namespace JobSearching.Services
         {
             this.context = context;
         }
-
-
+        
         private void Validate()
         {
             throw new NotImplementedException();
@@ -42,7 +42,7 @@ namespace JobSearching.Services
             context.SaveChanges();
 
             context.Entry(newAd).GetDatabaseValues();
-            //secures that object newVolunteer will have properly Id
+            //secures that object newVolunteer will have proper Id
 
             return newAd.Id;
         }
@@ -51,17 +51,51 @@ namespace JobSearching.Services
         public AdvertDetailViewModel GetAd(int id)
         {
             // виж AdvertController -> Detail();
-            throw new NotImplementedException("Impl. GetAd(id)");
+            //throw new NotImplementedException("Impl. GetAd(id)");
+            var ad = context.JobAds.FirstOrDefault(a => a.Id == id);
+            if (ad == null)
+            {
+                throw new ArgumentException("Cannot find the specified ad or employer associated with it.");
+            }
+            var employer = context.Employers.Find(ad.EmployerId);
+            
+            var detailedAd = new AdvertDetailViewModel()
+            {
+                CompanyBossFirstName = employer.FirstName,
+                CompanyBossLastName = employer.LastName,
+                CompanyName = employer.CompanyName,
+                CompanyLocation = employer.CurrentAddress,
+                Position = ad.PositionName,
+                Description = ad.Description,
+                ContactEmail = employer.ContactEmail,
+                ContactPhone = employer.ContactPhone
+            };
+            return detailedAd;
         }
 
 
         public IndexSingleAdViewModel GetAllAds()
         {
-            throw new NotImplementedException("Impl. GetAllAds");
+            //throw new NotImplementedException("Impl. GetAllAds");
+            var availableAds = new List<AdvertSingleViewModel>();
+            foreach(var item in context.JobAds)
+            {
+                var ad = new AdvertSingleViewModel
+                {
+                    Id = item.Id,
+                    Position = item.PositionName,
+                    Description = item.Description,
+                    CompanyName = context.Employers.First(e => e.Id == item.EmployerId).CompanyName
+                };
+                availableAds.Add(ad);
+            }
+            var db_ads = new IndexSingleAdViewModel();
+            db_ads.Ads = availableAds;
+            return db_ads;
         }
 
 
-        public int SignVolunteerToAnAdd(int advertId)
+        public int SignVolunteerToAnAd(int advertId)
         {
             // Тук се прави връзката м/у реклама и потребител (JobVolunteer)
             // Използвай синтаксис CurrentSigned.VolunteerId (статично)

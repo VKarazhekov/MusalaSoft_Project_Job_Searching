@@ -26,8 +26,8 @@ namespace JobSearching.Controllers
 
         public IActionResult Detail(int id)
         {
-            //EmployerDetailViewModel model = service.GetEmployer(id);
-            EmployerDetailViewModel model = new EmployerDetailViewModel()
+            EmployerDetailViewModel model = service.GetEmployer(id);
+            /*EmployerDetailViewModel model = new EmployerDetailViewModel()
             {
                 FirstName = "Veselin"+id,
                 MiddleName = "Hristov",
@@ -37,7 +37,7 @@ namespace JobSearching.Controllers
                 ContactPhone = "0898420000",
                 Age = 30,
                 CompanyLocation = "Bulgaria, Sofia"
-            };
+            };*/
             return View(model);
         }
 

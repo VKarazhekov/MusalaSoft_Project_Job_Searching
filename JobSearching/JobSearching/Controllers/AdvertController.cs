@@ -26,8 +26,8 @@ namespace JobSearching.Controllers
 
         public IActionResult Detail(int id)
         {
-            //AdvertDetailViewModel model = service.GetAd(id);
-            AdvertDetailViewModel model = new AdvertDetailViewModel()
+            AdvertDetailViewModel model = service.GetAd(id);
+            /*AdvertDetailViewModel model = new AdvertDetailViewModel()
             {
                 CompanyBossFirstName = "Veselin",
                 CompanyBossLastName = "Penev",
@@ -36,14 +36,14 @@ namespace JobSearching.Controllers
                 ContactPhone = "0898420000",
                 Position = "German Translator",
                 Description = "[EN] Our company needs a German Translator - he / she must be able to speak german very well. \n[DE] Unsere Firma braucht einen deutschen Übersetzer - er / sie muss deutsch wirklich gut können."
-            };
+            };*/
             return View(model);
         }
 
-        public IActionResult DisplayAllAds(int id)
+        public IActionResult DisplayAllAds()
         {
-            //AdvertIndexViewModel model = service.GetAd(id);
-            List<AdvertSingleViewModel> ads = new List<AdvertSingleViewModel>();
+            IndexSingleAdViewModel model = service.GetAllAds();
+            /*List<AdvertSingleViewModel> ads = new List<AdvertSingleViewModel>();
             string[] positionRest = { "HR","Imagnary Coop","Cool Stuff OOD","My Bussiness OOD","Help me OOD", "Everyday Stuff Coop." };
             string[] positions = { "Manager of ", "Secondary manager ", "Children teacher about " };
             string[] companies = { "Imaginary Coop.", "Random Coop.", "Random Stuff OOD" };
@@ -64,7 +64,7 @@ namespace JobSearching.Controllers
             IndexSingleAdViewModel model = new IndexSingleAdViewModel()
             {
                 Ads = ads
-            };
+            };*/
             return View(model);
         }
 

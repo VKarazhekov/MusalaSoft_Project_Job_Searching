@@ -37,29 +37,29 @@ namespace JobSearching.Controllers
 
         public IActionResult Detail(int id)
         {
-            //VolunteerDetailViewModel model = service.GetVolunteer(id);
-            VolunteerDetailViewModel model = new VolunteerDetailViewModel()
+            VolunteerDetailViewModel model = service.GetVolunteer(id);
+            /*VolunteerDetailViewModel model = new VolunteerDetailViewModel()
             {
                 Username = "veselin465",
                 FirstName = "Veselin",
                 LastName = "Penev",
                 Age = 25,
                 Contact = "veselinpenev2001@gmail.com"
-            };
+            };*/
             return View(model);
         }
 
         public IActionResult Profile()
         {
-            //VolunteerProfileViewModel model = service.GetSignedVolunteer();
-            VolunteerProfileViewModel model = new VolunteerProfileViewModel()
+            VolunteerProfileViewModel model = service.GetSignedVolunteer();
+            /*VolunteerProfileViewModel model = new VolunteerProfileViewModel()
             {
                 Username = "veselin465",
                 FirstName = "Veselin",
                 LastName = "Penev",
                 Age = 25,
                 Contact = "veselinpenev2001@gmail.com"
-            };
+            };*/
 
             if (model == null)
             {
@@ -87,7 +87,7 @@ namespace JobSearching.Controllers
         public IActionResult LogIn(string userName, string password)
         {
             int id = -1;
-            /*id = this.service.LogInVolunteer(userName, password);*/
+            id = this.service.LogInVolunteer(userName, password);
 
             if (id == -1)
             {
@@ -107,7 +107,7 @@ namespace JobSearching.Controllers
         public IActionResult Profile(string userName, string oldPassword, string newPassword, string firstName, string lastName, int age, string contact)
         {
             bool isSuccessful = false;
-            //status = service.ChangeVolunteer();
+            isSuccessful = service.ChangeVolunteer(userName, oldPassword, newPassword, firstName, lastName, age, contact);
             if (isSuccessful)
             {
                 return RedirectToAction("", "Volunteer");

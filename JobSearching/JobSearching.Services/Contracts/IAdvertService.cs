@@ -11,6 +11,6 @@ namespace JobSearching.Services.Contracts
         AdvertDetailViewModel GetAd(int id);
         IndexSingleAdViewModel GetAllAds();
         int CreateAd(int employerId, string position, string descritpion);
-        int SignVolunteerToAnAdd(int advertId);
+        int SignVolunteerToAnAd(int advertId);
     }
 }
