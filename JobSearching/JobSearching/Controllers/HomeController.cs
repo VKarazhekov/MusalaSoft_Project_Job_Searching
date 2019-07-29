@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using JobSearching.Models;
+using JobSearching.ViewModels;
 
 namespace JobSearching.Controllers
 {
@@ -33,5 +34,6 @@ namespace JobSearching.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
     }
 }

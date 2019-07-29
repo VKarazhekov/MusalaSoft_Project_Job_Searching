@@ -4,7 +4,7 @@ using System.Text;
 
 namespace JobSearching.Data.Models
 {
-    public static class Configuration
+    public static class ConfigurationData
     {
         public const string ConnectionString = "Server=.\\SQLEXPRESS;Database=JobSearching;Trusted_Connection=True;";
     }

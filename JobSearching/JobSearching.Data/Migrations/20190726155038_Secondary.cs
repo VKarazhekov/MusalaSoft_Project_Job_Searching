@@ -14,14 +14,14 @@ namespace JobSearching.Data.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    FirstName = table.Column<string>(nullable: false),
-                    MiddleName = table.Column<string>(nullable: false),
-                    LastName = table.Column<string>(nullable: false),
+                    FirstName = table.Column<string>(nullable: false, maxLength:15),
+                    MiddleName = table.Column<string>(nullable: false, maxLength: 15),
+                    LastName = table.Column<string>(nullable: false, maxLength: 15),
                     Age = table.Column<int>(nullable: false),
-                    CurrentAddress = table.Column<string>(nullable: false),
-                    CompanyName = table.Column<string>(nullable: false),
-                    ContactEmail = table.Column<string>(nullable: false),
-                    ContactPhone = table.Column<string>(nullable: false),
+                    CurrentAddress = table.Column<string>(nullable: false,maxLength:100),
+                    CompanyName = table.Column<string>(nullable: false, maxLength:60),
+                    ContactEmail = table.Column<string>(nullable: false, maxLength:30),
+                    ContactPhone = table.Column<string>(nullable: false, maxLength:12),
                     RegisteredOn = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
@@ -35,12 +35,12 @@ namespace JobSearching.Data.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Username = table.Column<string>(nullable: false),
-                    Password = table.Column<string>(nullable: false),
-                    FirstName = table.Column<string>(nullable: false),
+                    Username = table.Column<string>(nullable: false, maxLength:20),
+                    Password = table.Column<string>(nullable: false, maxLength: 20),
+                    FirstName = table.Column<string>(nullable: false, maxLength: 15),
+                    LastName = table.Column<string>(nullable: false, maxLength: 15),
                     Age = table.Column<int>(nullable: false),
-                    LastName = table.Column<string>(nullable: false),
-                    ContactInformation = table.Column<string>(nullable: false),
+                    ContactInformation = table.Column<string>(nullable: false, maxLength:100),
                     RegisteredOn = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
@@ -54,9 +54,9 @@ namespace JobSearching.Data.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    PositionName = table.Column<string>(nullable: false),
+                    PositionName = table.Column<string>(nullable: false, maxLength:20),
                     EmployerId = table.Column<int>(nullable: false),
-                    Description = table.Column<string>(nullable: true)
+                    Description = table.Column<string>(nullable: true, maxLength:500)
                 },
                 constraints: table =>
                 {
