@@ -18,22 +18,34 @@ namespace JobSearching.Services
             this.context = context;
         }
         
-        private void Validate()
+        private void Validate(int employerId, string position, string description)
         {
-            throw new NotImplementedException();
-            /// Throw new ArgumentException("Explain what is the problem")
+            if(context.Employers.Find(employerId) == null)
+            {
+                throw new ArgumentException($"Cannot find the employer with id = {employerId}");
+            }
+            if (position.Length > 25)
+            {
+                if(!position.All(char.IsLetter))
+                {
+                    throw new ArgumentException("The name of the position cannot contain numbers. Please enter a name that doesn't contain numbers.");
+                }
+                throw new ArgumentException("The length of the position name exceeds 20 symbols. Please enter a shorter name for the position.");
+            }
+            if(description.Length > 500)
+            {
+                throw new ArgumentException("The description length exceeds 500 symbbols. Please enter a shorter description.");
+            }
         }
 
-        public int CreateAd(int employerId, string position, string descritpion)
+        public int CreateAd(int employerId, string position, string description)
         {
-            //// Validate();
-            //// MUST HAVE VALIDATION
-
+            Validate(employerId, position, description);
             var newAd = new JobAd()
             {
                 EmployerId = employerId,
                 PositionName = position,
-                Description = descritpion,
+                Description = description,
                 Employer = context.Employers.Find(employerId)
             };
 
@@ -52,13 +64,16 @@ namespace JobSearching.Services
         {
             // виж AdvertController -> Detail();
             //throw new NotImplementedException("Impl. GetAd(id)");
-            var ad = context.JobAds.FirstOrDefault(a => a.Id == id);
+            var ad = context.JobAds.Find(id);
             if (ad == null)
             {
-                throw new ArgumentException("Cannot find the specified ad or employer associated with it.");
+                throw new ArgumentException("Cannot find the specified ad.");
             }
             var employer = context.Employers.Find(ad.EmployerId);
-            
+            if(employer == null)
+            {
+                throw new ArgumentException("Cannot find the employer associated with the ad.");
+            }
             var detailedAd = new AdvertDetailViewModel()
             {
                 CompanyBossFirstName = employer.FirstName,

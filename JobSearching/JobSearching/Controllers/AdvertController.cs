@@ -75,7 +75,7 @@ namespace JobSearching.Controllers
             {
                 this.service.CreateAd(employerId, position, descritpion);
             }
-            catch (ArgumentException e)
+            catch (Exception e)
             {
                 return this.View("InvalidAction", new InvalidActionViewModel() { ErrorMessage = e.Message });
             }
