@@ -13,16 +13,14 @@
 <style>
 
 </style>
-
 <div class="row">
-    <p class="headlineFont">Account information about: <b>@Model.Username</b></p>
-
-    <hr class="horizontalRule" />
-
-    <pre class="whiteShade"><span class="textTypeFont">Name:    </span><span class="textFont">@Model.FirstName<span>  </span>@Model.LastName<span>  [</span>@Model.Age]</span></pre>
-    <pre class="whiteShade"><span class="textTypeFont">Contact: </span><span class="textFont">@Model.Contact</span> </pre>
+    <div class="col-md-6">
+        <p class="headlineFont">Account information about: <b>@Model.Username</b></p>
+        <hr class="horizontalRule" />
+        <pre class="whiteShade"><span class="textTypeFont">Name:    </span><span class="textFont">@Model.FirstName<span>  </span>@Model.LastName<span>  [</span>@Model.Age]</span></pre>
+        <pre class="whiteShade"><span class="textTypeFont">Contact: </span><span class="textFont">@Model.Contact</span> </pre>
+    </div>
 </div>
-
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

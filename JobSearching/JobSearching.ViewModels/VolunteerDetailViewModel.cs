@@ -12,5 +12,6 @@ namespace JobSearching.ViewModels
 
         public int Age { get; set; }
         public string Contact { get; set; }
+
     }
 }

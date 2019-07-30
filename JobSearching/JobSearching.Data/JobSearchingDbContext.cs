@@ -24,9 +24,7 @@ namespace JobSearching.Data
             modelBuilder.Entity<JobAd>()
                 .HasKey(x => x.Id);
 
-            
-
-            modelBuilder.Entity<JobAd>()
+          modelBuilder.Entity<JobAd>()
                 .HasOne(p => p.Employer)
                 .WithMany(b => b.JobAds)
                 .HasForeignKey(p => p.EmployerId)

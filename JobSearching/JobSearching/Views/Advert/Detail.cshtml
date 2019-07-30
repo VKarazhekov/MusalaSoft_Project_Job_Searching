@@ -9,6 +9,21 @@
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
 
+    <style>
+
+        .signUpForAdvertButton {
+            background-color: #64ba67;
+            border-radius: 20px;
+            border: 2px;
+            padding: 15px 40px;
+            font-size: 40px;
+            cursor: pointer;
+            margin: 5px;
+            display: inline-block;
+        }
+
+    </style>
+
 </head>
 
 <p class="headlineFont">Information About Job Advertisement</p>
@@ -23,11 +38,15 @@
     <li><pre class="whiteShade"><span class="textTypeFont">Additional Information </span><br /><span class="textFont">@Model.Description</span> </pre></li>
 </ul>
 
+<br />
 
-
-<div class="row">
-
+<div style="width:100%;text-align: center;">
+        <div class="signUpForAdvertButton">
+            <b><a asp-route-id="@Model.Id" asp-area="" asp-action="VolunteerSignUpAdvert" asp-controller="Advert">Sign up</a></b>
+        </div>
+    
 </div>
+
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

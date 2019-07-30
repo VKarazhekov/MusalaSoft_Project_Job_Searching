@@ -24,7 +24,7 @@ namespace JobSearching.Services
             {
                 throw new ArgumentException($"Cannot find the employer with id = {employerId}");
             }
-            if (position.Length > 25)
+            if (position.Length < 8 || position.Length > 20)
             {
                 if(!position.All(char.IsLetter))
                 {

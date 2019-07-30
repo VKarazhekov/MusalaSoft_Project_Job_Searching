@@ -28,9 +28,9 @@
                 <input type="submit" value="LogIn" class="btn btn-default" />
             </div>
         </form>
-        @if (Model!=null && Model.FailedLogInAttempt)
+        @if (Model!=null && Model.ErrorMessage != "")
         {
-            <p style="color:red;margin-left:10px;font-size:20px"><i>Failed LogIn attempt</i></p>
+            <p style="color:red;margin-left:10px;font-size:20px"><i>@Model.ErrorMessage</i></p>
         }
         <br />
         <br />

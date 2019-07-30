@@ -1,0 +1,33 @@
+﻿@model JobSearching.ViewModels.InvalidActionViewModel
+@{
+    ViewData["Title"] = "Successful execution";
+}
+
+<head>
+    <meta charset="utf-8" />
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+</head>
+
+<br />
+<h1 style="color:green">Your last action was successfully completed</h1>
+<br />
+
+<h2 style="margin-left:50px;">
+    Go to: <a asp-route-id="" asp-area="" asp-action="Index" asp-controller="Home">Main Page</a>
+</h2>
+
+<h2 style="margin-left:50px;">
+    Go to: <a asp-route-id="" asp-area="" asp-action="Profile" asp-controller="Volunteer">Your Profile</a> 
+</h2>
+<h2 style="margin-left:50px;">
+    Go: <a asp-route-id="" asp-area="" asp-action="DisplayAllAds" asp-controller="Advert">Find a Job</a>
+</h2>
+
+<h2 style="margin-left:50px;">
+    Go: <a asp-route-id="" asp-area="" asp-action="LogIn" asp-controller="Volunteer">LogIn </a>in another account
+</h2>
+
+
+<br />

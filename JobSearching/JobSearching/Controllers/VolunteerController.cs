@@ -21,6 +21,11 @@ namespace JobSearching.Controllers
             this.service = service;
         }
 
+        public IActionResult SuccessfulAction()
+        {
+            return View();
+        }
+
         public IActionResult Create()
         {
             return View();
@@ -30,15 +35,28 @@ namespace JobSearching.Controllers
         {
             return View();
         }
-        public IActionResult FailedLogInAttempt()
+
+        public IActionResult LogInError()
         {
-            return View();
+
+            string username = (TempData["username"]!=null) ? TempData["username"].ToString() : "";
+            string errorMsg = (TempData["errorMsg"] != null) ? TempData["errorMsg"].ToString() : "";
+
+            if (errorMsg == "") return View("LogIn");
+
+            return View("LogIn",new VolunteerLogInViewModel()
+            {
+                Username = username,
+                Password = "",
+                ErrorMessage = errorMsg
+            });
         }
 
         public IActionResult Detail(int id)
         {
-            VolunteerDetailViewModel model = service.GetVolunteer(id);
-            /*VolunteerDetailViewModel model = new VolunteerDetailViewModel()
+            VolunteerDetailViewModel model;
+
+            /*model = new VolunteerDetailViewModel()
             {
                 Username = "veselin465",
                 FirstName = "Veselin",
@@ -46,24 +64,58 @@ namespace JobSearching.Controllers
                 Age = 25,
                 Contact = "veselinpenev2001@gmail.com"
             };*/
+
+            try
+            {
+                model = service.GetVolunteer(id);
+            }
+            catch (IndexOutOfRangeException)
+            {
+                return this.View("InvalidAction", new InvalidActionViewModel() { ErrorMessage = "Failed to execute last command:\nIndex was out of range" });
+            }
+            catch (ArgumentException e)
+            {
+                return this.View("InvalidAction", new InvalidActionViewModel() { ErrorMessage = e.Message });
+            }
+            
             return View(model);
         }
 
         public IActionResult Profile()
         {
-            VolunteerProfileViewModel model = service.GetSignedVolunteer();
-            /*VolunteerProfileViewModel model = new VolunteerProfileViewModel()
+            VolunteerProfileViewModel model;
+
+            /*var ads = new List<AdvertSingleViewModel>();
+            for (int i = 0; i < 20; i++)
+            {
+                ads.Add(new AdvertSingleViewModel()
+                {
+                    Id = (i + 1),
+                    Position = "Any pos pos pos",
+                    Description = "Any Description"
+                });
+            }
+            
+            model = new VolunteerProfileViewModel()
             {
                 Username = "veselin465",
                 FirstName = "Veselin",
                 LastName = "Penev",
                 Age = 25,
-                Contact = "veselinpenev2001@gmail.com"
+                Contact = "veselinpenev2001@gmail.com",
+                SignedInAds = new IndexSingleAdViewModel() { Ads = ads }
+
             };*/
 
-            if (model == null)
+            try
             {
-                return RedirectToAction("LogIn", "Volunteer");
+                model = service.GetSignedVolunteer();
+            }
+            catch (ArgumentException e)
+            {
+                TempData["username"] = "";
+                TempData["errorMsg"] = e.Message; //"You need to be logged in"
+                return LogInError();
             }
 
             return View(model);
@@ -80,6 +132,7 @@ namespace JobSearching.Controllers
             {
                 return this.View("InvalidAction", new InvalidActionViewModel() { ErrorMessage = e.Message });
             }
+           
             return this.RedirectToAction("LogIn", "Volunteer");
         }
 
@@ -91,26 +144,22 @@ namespace JobSearching.Controllers
 
             if (id == -1)
             {
-                
-                
-                return this.View(new VolunteerLogInViewModel() {
-                    Username = userName,
-                    Password = "",
-                    FailedLogInAttempt = true
-                });
+                TempData["username"] = userName;
+                TempData["errorMsg"] = "Failed LogIn Attempt";
+                return LogInError();
             }
             
-            return this.RedirectToAction("Profile", "Volunteer");
+            return this.RedirectToAction("SuccessfulAction", "Volunteer");
         }
 
         [HttpPost]
-        public IActionResult Profile(string userName, string oldPassword, string newPassword, string firstName, string lastName, int age, string contact)
+        public IActionResult Change(string userName, string oldPassword, string newPassword, string firstName, string lastName, int age, string contact)
         {
-            bool isSuccessful = false;
+            bool isSuccessful = true;
             isSuccessful = service.ChangeVolunteer(userName, oldPassword, newPassword, firstName, lastName, age, contact);
             if (isSuccessful)
             {
-                return RedirectToAction("", "Volunteer");
+                return RedirectToAction("SuccessfulAction", "Volunteer");
             }
             else
             {
