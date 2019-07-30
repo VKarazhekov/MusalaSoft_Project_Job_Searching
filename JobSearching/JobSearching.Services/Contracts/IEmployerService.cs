@@ -9,7 +9,7 @@ namespace JobSearching.Services.Contracts
     {
         int CreateEmployer(string firstName, string middleName, string lastName, int age, string companyName, string companyLocation, string contactEmail, string contactPhone);
         EmployerDetailViewModel GetEmployer(int id);
-        IndexSingleAdViewModel GetAllHostedAds(int id);
+        //IndexSingleAdViewModel GetAllHostedAds(int id);
 
     }
 }

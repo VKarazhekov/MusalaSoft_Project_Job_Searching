@@ -27,7 +27,7 @@ namespace JobSearching.Services
             }
             if (firstName.Length == 1 || firstName.Length > 15)
             {
-                throw new ArgumentException("Please enter a first name with length between 2 and 20 letters.");
+                throw new ArgumentException("Please enter a first name with length between 2 and 15 letters.");
             }
             if (!char.IsUpper(firstName[0]) || !firstName.Skip(1).All(char.IsLower))
             {
@@ -39,7 +39,7 @@ namespace JobSearching.Services
             }
             if (middleName.Length == 1 || middleName.Length > 15)
             {
-                throw new ArgumentException("Please enter a middle name with length between 2 and 20 letters.");
+                throw new ArgumentException("Please enter a middle name with length between 2 and 15 letters.");
             }
             if (!char.IsUpper(middleName[0]) || !middleName.Skip(1).All(char.IsLower))
             {
@@ -51,7 +51,7 @@ namespace JobSearching.Services
             }
             if (lastName.Length == 1 || lastName.Length > 15)
             {
-                throw new ArgumentException("Please enter a last name with length between 2 and 20 letters.");
+                throw new ArgumentException("Please enter a last name with length between 2 and 15 letters.");
             }
             if (!char.IsUpper(lastName[0]) || !lastName.Skip(1).All(char.IsLower))
             {
@@ -118,13 +118,40 @@ namespace JobSearching.Services
 
         public EmployerDetailViewModel GetEmployer(int id)
         {
-            // виж EmployerController -> Detail();
-            throw new NotImplementedException("Impl. GetEmployer(id)");
+            var employer = context.Employers.Find(id);
+            var detailed_employer = new EmployerDetailViewModel()
+            {
+                FirstName = employer.FirstName,
+                MiddleName = employer.MiddleName,
+                LastName = employer.LastName,
+                Age = employer.Age,
+                CompanyName = employer.CompanyName,
+                CompanyLocation = employer.CurrentAddress,
+                ContactEmail = employer.ContactEmail,
+                ContactPhone = employer.ContactPhone
+            };
+            var model = new EmployerDetailViewModel();
+            model.HostAds = GetAllHostedAds(id);
+            return model;
         }
 
-        public IndexSingleAdViewModel GetAllHostedAds(int id)
+        private IndexSingleAdViewModel GetAllHostedAds(int id)
         {
-            throw new NotImplementedException("Impl. GetAllHostedAds(id)");
+            var hostedAds = new List<AdvertSingleViewModel>();
+            foreach(var item in context.JobAds.Where(j => j.EmployerId == id))
+            {
+                var temp = new AdvertSingleViewModel()
+                {
+                    Id = item.Id,
+                    Position = item.PositionName,
+                    Description = item.Description,
+                    CompanyName = context.Employers.Find(id).CompanyName
+                };
+                hostedAds.Add(temp);
+            }
+            IndexSingleAdViewModel model = new IndexSingleAdViewModel();
+            model.Ads = hostedAds;
+            return model;
         }
 
     }

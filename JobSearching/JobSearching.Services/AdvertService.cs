@@ -24,13 +24,17 @@ namespace JobSearching.Services
             {
                 throw new ArgumentException($"Cannot find the employer with id = {employerId}");
             }
-            if (position.Length < 8 || position.Length > 20)
+            if (!position.All(char.IsLetter))
             {
-                if(!position.All(char.IsLetter))
-                {
-                    throw new ArgumentException("The name of the position cannot contain numbers. Please enter a name that doesn't contain numbers.");
-                }
-                throw new ArgumentException("The length of the position name exceeds 20 symbols. Please enter a shorter name for the position.");
+                throw new ArgumentException("The name of the position cannot contain numbers. Please enter a name that doesn't contain numbers.");
+            }
+            if(position.Length < 8)
+            {
+                throw new ArgumentException("The length of the position name must be longer than 8 letters. Please enter a more detailed name.");
+            }
+            if (position.Length > 20)
+            {
+                throw new ArgumentException("The length of the position name exceeds 20 letters. Please enter a shorter name for the position.");
             }
             if(description.Length > 500)
             {
