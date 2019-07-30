@@ -19,5 +19,8 @@ namespace JobSearching.ViewModels
 
         public bool FailedLogInAttempt { get; set; } = false;
         public bool IsChangeable { get; set; }
+
+        public IndexSingleAdViewModel SignedInAds { get; set; }
+
     }
 }

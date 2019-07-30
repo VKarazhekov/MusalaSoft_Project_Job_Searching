@@ -11,10 +11,41 @@
 </head>
 
 <style>
-    
+    .box {
+        border-radius: 10px;
+        background: #70ffbd;
+        padding-top: 10px;
+        text-align: center;
+        height: auto;
+        float: left;
+        min-width: 270px;
+        width: 90%;
+        margin: 2%;
+    }
+
+    ::-webkit-scrollbar {
+        width: 15px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #bbb;
+        border-radius: 20px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        
+        background: #555;
+        border-radius: 20px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #444444;
+    }
+
 </style>
 
 <div class="row">
+
     <div class="col-md-6">
 
         <p class="headlineFont">Personal Information</p>
@@ -36,8 +67,38 @@
 
     <div class="col-md-6">
 
-    </div>
+        <div style=" margin-top: 70px;">
+            <p class="headlineFont" style="margin-left:10px;"> Hosted Job Ads</p>
+
+            @if (Model.HostAds == null || Model.HostAds.Ads == null || Model.HostAds.Ads.LongCount() == 0)
+            {
+                <p style="margin-left:20px;font: 30px Consolas; color: red;">Currently, There are no <br> Job Adverts to be displayed</p>
+            }
+            else
+            {
+
+                <div style="overflow-y: scroll; max-height:300px;text-align:center;">
+                    @foreach (var ad in Model.HostAds.Ads)
+                    {
+                        <figure class="box">
+                            <p class="" style="word-wrap:initial;">
+                                <b class="adDisplayTypeFont">POSITION:</b>
+                                <a asp-route-id="@ad.Id" asp-area="" asp-action="Detail" asp-controller="Advert" class="adDisplayTextFont" style="color:green; ">@ad.Position</a>
+                            </p>
+
+
+                        </figure>
+                    }
+                </div>
+            }
+        </div>
+   </div>
 </div>
+
+<br />
+<hr class="horizontalRule" />
+
+
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

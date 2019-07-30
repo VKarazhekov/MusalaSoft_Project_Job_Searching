@@ -1,6 +1,6 @@
 ﻿@model JobSearching.ViewModels.VolunteerProfileViewModel
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "Profile";
 }
 
 <head>
@@ -8,14 +8,45 @@
     <environment include="Development">
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
-</head>
 
-<p class="headlineFont">Register</p>
+    <style>
+        .box {
+            border-radius: 10px;
+            background: #70ffbd;
+            padding-top: 10px;
+            text-align: center;
+            height: auto;
+            float: left;
+            min-width: 270px;
+            width: 90%;
+            margin: 2%;
+        }
+
+        ::-webkit-scrollbar {
+            width: 15px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #bbb;
+            border-radius: 20px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #555;
+            border-radius: 20px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #444444;
+        }
+    </style>
+
+</head>
 
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+    <div class="col-md-5">
+        <form asp-action="Change">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Username" class="control-label"></label>
@@ -27,7 +58,7 @@
                 <input asp-for="OldPassword" class="form-control" type="password" required/>
                 <span asp-validation-for="OldPassword" class="text-danger"></span>
             </div>
-            <p style="color:red;font: 15px Arial;">** You need to re-enter your LogIn data in order to change your account information</p>
+            <p style="color:#ff6a00;font: 18px Arial;">** You need to re-enter your LogIn data in order to change your account information</p>
             <hr class="horizontalRule" />
 
             <div class="form-group">
@@ -61,6 +92,35 @@
             </div>
         </form>
     </div>
+
+    <div class="col-md-6">
+        <div style=" margin-top: 70px;">
+            <p class="headlineFont" style="margin-left:10px;"> Your Signed In Ads</p>
+
+            @if (Model.SignedInAds == null || Model.SignedInAds.Ads == null || Model.SignedInAds.Ads.LongCount() == 0)
+            {
+                <p style="margin-left:20px;font: 30px Consolas; color: red;">Currently, There are no <br> Job Adverts to be displayed</p>
+            }
+            else
+            {
+                <div style="overflow-y: scroll; max-height:300px;text-align:center;">
+                    @foreach (var ad in Model.SignedInAds.Ads)
+                    {
+                        <figure class="box">
+                            <p class="" style="word-wrap:initial;">
+                                <b class="adDisplayTypeFont">POSITION:</b>
+                                <a asp-route-id="@ad.Id" asp-area="" asp-action="Detail" asp-controller="Advert" class="adDisplayTextFont" style="color:green; ">@ad.Position</a>
+                            </p>
+
+
+                        </figure>
+                    }
+                </div>
+            }
+            
+        </div>
+    </div>
+
 </div>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

@@ -6,6 +6,9 @@ namespace JobSearching.ViewModels
 {
     public class AdvertDetailViewModel
     {
+
+        public int Id { get; set; }
+
         public string CompanyBossFirstName { get; set; }
         public string CompanyBossLastName { get; set; }
 

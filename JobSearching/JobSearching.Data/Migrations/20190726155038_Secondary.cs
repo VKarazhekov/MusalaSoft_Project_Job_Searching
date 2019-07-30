@@ -46,6 +46,7 @@ namespace JobSearching.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Volunteers", x => x.Id);
+                    table.UniqueConstraint("UQ_Volunteers_Username", x => x.Username);
                 });
 
             migrationBuilder.CreateTable(
