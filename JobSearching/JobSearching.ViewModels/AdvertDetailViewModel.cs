@@ -8,6 +8,7 @@ namespace JobSearching.ViewModels
     {
 
         public int Id { get; set; }
+        public bool LoggedIn { get; set; } = false;
 
         public string CompanyBossFirstName { get; set; }
         public string CompanyBossLastName { get; set; }

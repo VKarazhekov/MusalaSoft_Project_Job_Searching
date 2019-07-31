@@ -133,7 +133,51 @@ namespace JobSearching.Services
 
         public VolunteerProfileViewModel GetSignedVolunteer()
         {
-            throw new NotImplementedException("Impl. GetSignedVolunteer()");
+            if(CurrentSigned.VolunteerId != -1)
+            {
+                if (context.Volunteers.Find(CurrentSigned.VolunteerId) != null)
+                {
+                    var currentlySigned = context.Volunteers.Find(CurrentSigned.VolunteerId);
+                    var ads = new List<AdvertSingleViewModel>();
+                    foreach(JobVolunteer ad in context.JobVolunteer.Where(x=>x.VolunteerId==CurrentSigned.VolunteerId))
+                    {
+                        var viewAd = context.JobAds.Find(ad.JobAdId);
+                        var singleViewModel = new AdvertSingleViewModel()
+                        {
+                            Id = ad.JobAd.Id,
+                            Position = ad.JobAd.PositionName,
+                            Description = ad.JobAd.Description,
+                            CompanyName = context.Employers.Find(ad.JobAd.EmployerId).CompanyName
+                        };
+                        ads.Add(singleViewModel);
+                    }
+                    var singleAdViewModel = new IndexSingleAdViewModel()
+                    {
+                        Ads = ads
+                    };
+                    var profileView = new VolunteerProfileViewModel()
+                    {
+                        Username = currentlySigned.Username,
+                        NewPassword = currentlySigned.Password,
+                        OldPassword = currentlySigned.Password,
+                        FirstName = currentlySigned.FirstName,
+                        LastName = currentlySigned.LastName,
+                        Age = currentlySigned.Age,
+                        Contact = currentlySigned.ContactInformation,
+                        SignedInAds = singleAdViewModel
+                    };
+                    return profileView;
+                }
+                else
+                {
+                    throw new ArgumentException("Cannot find the account with the currently specified id.");
+                }
+            }
+            else
+            {
+                throw new ArgumentException("There is currently no signed in account.");
+            }
+
         }
 
         

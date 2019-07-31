@@ -18,6 +18,7 @@ namespace JobSearching.Data
         public DbSet<Employer> Employers { get; set; }
         public DbSet<JobAd> JobAds { get; set; }
         public DbSet<Volunteer> Volunteers { get; set; }
+        public DbSet<JobVolunteer> JobVolunteer { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

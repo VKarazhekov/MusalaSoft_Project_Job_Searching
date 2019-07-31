@@ -92,7 +92,7 @@ namespace JobSearching.Controllers
         {
             int volId = -1;
             volId = this.service.SignVolunteerToAnAd(id);
-            if(volId != -1)
+            if(volId == -1)
             {
                 TempData["username"] = "";
                 TempData["errorMsg"] = "You need to be LoggedIn";
@@ -102,13 +102,13 @@ namespace JobSearching.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(int employerId, string position, string descritpion)
+        public IActionResult Create(int employerId, string position, string description)
         {
             try
             {
-                this.service.CreateAd(employerId, position, descritpion);
+                this.service.CreateAd(employerId, position, description);
             }
-            catch (Exception e)
+            catch (ArgumentException e)
             {
                 return this.View("InvalidAction", new InvalidActionViewModel() { ErrorMessage = e.Message });
             }

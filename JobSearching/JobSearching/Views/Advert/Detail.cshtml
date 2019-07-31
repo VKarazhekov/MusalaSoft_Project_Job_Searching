@@ -41,10 +41,18 @@
 <br />
 
 <div style="width:100%;text-align: center;">
-        <div class="signUpForAdvertButton">
-            <b><a asp-route-id="@Model.Id" asp-area="" asp-action="VolunteerSignUpAdvert" asp-controller="Advert">Sign up</a></b>
+    @if (Model.LoggedIn)
+    {
+        <div class="signUpForAdvertButton"; style="cursor:default;font: 25px Arial;">
+            <b>You are already Signed Up for this advert</b>
         </div>
     
+    } else {
+    <div class="signUpForAdvertButton">
+        <b><a asp-route-id="@Model.Id" asp-area="" asp-action="VolunteerSignUpAdvert" asp-controller="Advert">Sign up</a></b>
+    </div>
+    }
+
 </div>
 
 @section Scripts {

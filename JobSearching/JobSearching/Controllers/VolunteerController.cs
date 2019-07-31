@@ -155,7 +155,7 @@ namespace JobSearching.Controllers
         [HttpPost]
         public IActionResult Change(string userName, string oldPassword, string newPassword, string firstName, string lastName, int age, string contact)
         {
-            bool isSuccessful = true;
+            bool isSuccessful = false;
             isSuccessful = service.ChangeVolunteer(userName, oldPassword, newPassword, firstName, lastName, age, contact);
             if (isSuccessful)
             {

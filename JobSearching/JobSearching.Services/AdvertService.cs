@@ -38,7 +38,7 @@ namespace JobSearching.Services
             }
             if(description.Length > 500)
             {
-                throw new ArgumentException("The description length exceeds 500 symbbols. Please enter a shorter description.");
+                throw new ArgumentException("The description length exceeds 500 symbols. Please enter a shorter description.");
             }
         }
 
@@ -78,8 +78,20 @@ namespace JobSearching.Services
             {
                 throw new ArgumentException("Cannot find the employer associated with the ad.");
             }
+
+            bool loggedIn = false;
+            foreach (var adv in context.JobVolunteer.Where(x=>x.JobAdId==id))
+            {
+                if (adv.VolunteerId == CurrentSigned.VolunteerId)
+                {
+                    loggedIn = true;
+                }
+            }
+
             var detailedAd = new AdvertDetailViewModel()
             {
+                Id = id,
+                LoggedIn = loggedIn,
                 CompanyBossFirstName = employer.FirstName,
                 CompanyBossLastName = employer.LastName,
                 CompanyName = employer.CompanyName,
@@ -116,9 +128,21 @@ namespace JobSearching.Services
 
         public int SignVolunteerToAnAd(int advertId)
         {
-            // Тук се прави връзката м/у реклама и потребител (JobVolunteer)
-            // Използвай синтаксис CurrentSigned.VolunteerId (статично)
-            throw new NotImplementedException("Impl. Map advert+volunteer");
+            if(CurrentSigned.VolunteerId != -1 )
+            {
+                
+                var jobVolunteer = new JobVolunteer()
+                {
+                    JobAdId = advertId,
+                    
+                    VolunteerId = CurrentSigned.VolunteerId,
+                    
+                };
+                context.JobVolunteer.Add(jobVolunteer);
+                context.SaveChanges();
+                return 1;
+            }
+            return -1;
         }
 
     }
